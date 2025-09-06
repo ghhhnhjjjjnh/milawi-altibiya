@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>من نحن </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+        body { font-family: 'Tajawal', sans-serif; margin: 0; background-color: #f8f9fa; color: #333; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1576091160550-2173dba9996a');
+            background-size: cover; background-position: center;
+            color: white; text-align: center; padding: 100px 20px;
+        }
+        .hero h1 { font-size: 3.5em; margin: 0; }
+        .hero p { font-size: 1.3em; }
+
+        /* Mission & Vision Section */
+        .mission-vision { display: flex; flex-wrap: wrap; gap: 40px; margin-top: 60px; }
+        .mission-vision > div { flex: 1; min-width: 300px; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .mission-vision h2 { font-size: 2em; color: #009688; text-align: center; /}
+        .mission-vision p { font-size: 1.1em; line-height: 1.8; }
+        
+
+        /* Values Section */
+        .values { margin-top: 60px; text-align: center; }
+        .values h2 { font-size: 2.2em; }
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px; }
+        .value-card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .value-card .icon { font-size: 3em; color: #009688; margin-bottom: 15px; }
+        .value-card h3 { font-size: 1.5em; margin: 0; }
+
+        /* Team Section */
+        .team-section { margin-top: 60px; text-align: center; }
+        .team-section h2 { font-size: 2.2em; }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px; }
+        .team-card {
+            background: #ffffff; padding: 30px; border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.07); transition: transform 0.3s ease;
+        }
+        .team-card:hover { transform: translateY(-10px); }
+        .team-card .photo {
+            width: 150px; height: 150px; border-radius: 50%;
+            object-fit: cover; border: 6px solid #e9ecef; margin-bottom: 20px;
+        }
+        .team-card h3 { font-size: 1.7em; margin: 0 0 5px 0; font-weight: 700; }
+        .team-card .title { font-size: 1.1em; color: #009688; font-weight: 500; }
+        
+        /* ========================================= */
+        /* ===   قسم التجاوب مع جميع الشاشات   === */
+        /* ========================================= */
+        @media (max-width: 768px) {
+            .container { padding: 20px 15px; }
+            /* Hero Section */
+            .hero { padding: 60px 20px; }
+            .hero h1 { font-size: 2.5em; }
+            .hero p { font-size: 1.1em; }
+
+            /* Sections */
+            .mission-vision { margin-top: 40px; gap: 20px; }
+            .values, .team-section { margin-top: 40px; }
+            .values h2, .team-section h2, .mission-vision h2 { font-size: 1.8em; }
+
+            /* Cards */
+            .mission-vision > div, .value-card, .team-card { padding: 20px; }
+            .value-card h3 { font-size: 1.3em; }
+            
+            /* Team Section */
+            .team-card .photo { width: 120px; height: 120px; }
+            .team-card h3 { font-size: 1.4em; }
+            .team-card .title { font-size: 1em; }
+        }
+        /* === كود إضافة خط سميك تحت العناوين === */
+.mission-vision h2::after,
+.values h2::after,
+.team-section h2::after {
+    content: ''; /* ضروري لإنشاء العنصر الوهمي */
+    display: block; /* لجعله يأخذ مساحة خاصة به */
+    width: 80px;      /* عرض الخط */
+    height: 4px;      /* سماكة الخط (هذا ما يجعله "بولد") */
+    background-color: #009688; /* لون الخط (استخدمت اللون المميز للموقع) */
+    margin: 15px auto 0; /* 15 بكسل مسافة من الأعلى، وتوسيط أفقي */
+    border-radius: 2px; /* لجعل حواف الخط ناعمة قليلاً */
+}
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>من نحن</h1>
+        <p>قصة من الشغف والالتزام نحو تقديم رعاية صحية استثنائية</p>
+    </div>
+
+    <div class="container">
+        <div class="mission-vision">
+            <div>
+                <h2>رؤيتنا</h2>
+                <p>أن نكون الصرح الطبي الرائد والموثوق في المنطقة، ونقطة البداية لكل باحث عن صحة أفضل وحياة مليئة بالعافية.</p>
+            </div>
+            <div>
+                <h2>رسالتنا</h2>
+                <p>تقديم خدمات طبية متكاملة بأعلى معايير الجودة، من خلال فريق طبي متميز وأحدث التقنيات، مع التزامنا الكامل بأخلاقيات المهنة وراحة مرضانا.</p>
+            </div>
+        </div>
+
+        <div class="values">
+            <h2>قيمنا الأساسية</h2>
+            <div class="values-grid">
+                <div class="value-card"><i class="fas fa-hand-holding-medical icon"></i><h3>رعاية المريض أولاً</h3></div>
+                <div class="value-card"><i class="fas fa-award icon"></i><h3>التميز والجودة</h3></div>
+                <div class="value-card"><i class="fas fa-users icon"></i><h3>العمل بروح الفريق</h3></div>
+                <div class="value-card"><i class="fas fa-lightbulb icon"></i><h3>الابتكار والتطوير</h3></div>
+            </div>
+        </div>
+        
+        <div class="team-section">
+            <h2>تعرف على فريقنا</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="imges/Belal.jpg" alt="صورة بلال محمود" class="photo"> <h3>م. بلال محمود</h3>
+                    <p class="title">منشى الموقع</p>
+                </div>
+                
+                <div class="team-card">
+                    <img src="imges/zayed.jpeg" alt="صورة زياد مصطفى" class="photo">
+                    <h3>م. زياد مصطفى</h3>
+                 
+                </div>
+                
+                <div class="team-card">
+                    <img src="imges/hesam.jpeg" alt="صورة هشام كمال" class="photo">
+                    <h3>م. هشام كمال</h3>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

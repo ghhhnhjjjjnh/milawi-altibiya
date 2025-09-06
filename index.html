@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مجمع ملوي الطبي</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap');
+
+        :root {
+            --primary-color: #00D9E1;
+            --dark-blue: #0A192F;
+            --text-primary: #E6F1FF;
+            --text-secondary: #c9d8ec;
+        }
+
+        body {
+            margin: 0;
+            padding: 0 5%; /* استخدام نسبة مئوية للمسافات الجانبية */
+            font-family: 'Tajawal', sans-serif;
+            color: white;
+            min-height: 100vh; /* استخدام min-height لضمان الامتلاء دائماً */
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            overflow-x: hidden; /* منع التمرير الأفقي */
+            position: relative;
+            background-image: 
+                linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)),
+                url('imges/front-view-female-doctor-with-medical-mask-stethoscope-hairnet.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* تثبيت الخلفية عند التمرير */
+        }
+
+        .content-card {
+            position: relative;
+            z-index: 2;
+            padding: 40px;
+            max-width: 600px;
+            background: rgba(10, 25, 47, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(0, 217, 225, 0.2);
+            text-align: right;
+            animation: slideIn 1s ease-out forwards;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        h1 {
+            font-size: 4em;
+            font-weight: 900;
+            margin: 0 0 10px 0;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+        
+        p {
+            font-size: 1.2em;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 90%;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 35px;
+            font-size: 1.1em;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            border: 2px solid var(--primary-color);
+            border-radius: 50px;
+            background-color: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 217, 225, 0);
+        }
+
+        .button:hover {
+            background-color: var(--primary-color);
+            color: var(--dark-blue);
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(0, 217, 225, 0.7);
+        }
+        
+        /* ========================================= */
+        /* === قسم التجاوب مع الشاشات (Responsive) === */
+        /* ========================================= */
+
+        /* 1. شاشات اللابتوب الصغيرة والتابلت بالعرض */
+        @media (max-width: 992px) {
+            h1 { font-size: 3.5em; }
+            p { font-size: 1.1em; }
+            .content-card { max-width: 500px; padding: 35px; }
+        }
+
+        /* 2. شاشات التابلت بالطول */
+        @media (max-width: 768px) {
+            body {
+                /* أهم تغيير: نجعل المحتوى في المنتصف على الشاشات الأصغر */
+                justify-content: center;
+                padding: 0 20px; /* تقليل المسافات الجانبية */
+                align-items: center;
+                text-align: center;
+            }
+            .content-card {
+                /* نجعل النص داخل البطاقة في المنتصف أيضاً */
+                text-align: center;
+                width: 100%; /* البطاقة تأخذ عرضاً أكبر */
+                max-width: 500px;
+            }
+            h1 { font-size: 3em; }
+            p { 
+                font-size: 1em; 
+                max-width: 100%; /* الفقرة تأخذ كامل عرض البطاقة */
+                margin: 0 auto;
+            }
+        }
+        
+        /* 3. شاشات الموبايل */
+        @media (max-width: 480px) {
+            .content-card {
+                padding: 25px;
+                /* إزالة تأثير الزجاج على الموبايلات الضعيفة لتحسين الأداء */
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+            }
+            h1 { font-size: 2.5em; } /* تصغير العنوان الرئيسي ليناسب الموبايل */
+            p { font-size: 0.9em; } /* تصغير الفقرة */
+            .button {
+                padding: 12px 28px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content-card">
+        <h1>نرسم مستقبل صحتك.</h1>
+        <p>في مجمعنا، تجتمع الخبرة البشرية مع دقة التكنولوجيا لنقدم لك رعاية صحية تتجاوز توقعاتك. أهلاً بك في عصر جديد من الطب.</p>
+        <a href="choose.html" class="button">تواصل مع طبيبك الان</a>
+    </div>
+</body>
+</html>

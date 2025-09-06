@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تخصصاتنا الطبية </title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden; 
+            background-image: 
+                linear-gradient(rgba(50, 50, 50, 0.157), rgba(68, 70, 69, 0.095))
+            
+        }
+
+        .page-container { display: flex; height: 100%; }
+        .preview-pane { flex-basis: 65%; position: relative; }
+        .specialty-preview {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            display: flex; align-items: center; justify-content: center; flex-direction: column;
+            text-align: center; color: white; padding: 40px; box-sizing: border-box;
+            background-size: cover; background-position: center;
+            background-blend-mode: multiply; background-color: rgba(10, 25, 47, 0.5);
+            opacity: 0; visibility: hidden; transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        .specialty-preview.active { opacity: 1; visibility: visible; }
+        
+        /* ======================================================= */
+        /* === ضع روابط صورك المخصصة هنا === */
+        /* ======================================================= */
+        #preview-cardiology  { background-image: url('https://i.pinimg.com/1200x/03/bd/5b/03bd5b3751e357eefb520c8e27cd6911.jpg'); }
+        #preview-orthopedics { background-image: url('https://i.pinimg.com/1200x/b9/b0/82/b9b08229eae9de7550e32524a11f408e.jpg'); }
+        #preview-dentistry { background-image: url('https://i.pinimg.com/736x/44/f3/05/44f30531a21be10b8638ebc854a13936.jpg'); }
+        #preview-about      { background-image: url('imges/about.png'); }
+        /* ======================================================= */
+
+        .specialty-preview h2 { font-size: 3.5em; font-weight: 900; margin: 0; }
+        .specialty-preview p { font-size: 1.2em; max-width: 500px; margin: 20px 0; }
+        .list-pane { flex-basis: 35%; padding: 40px; box-sizing: border-box; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px); display: flex; flex-direction: column; justify-content: center; }
+        .list-pane h1 { font-size: 2.2em; margin: 0 0 10px 0; color: #333; }
+        .list-pane .subtitle { font-size: 1.1em; color: #777; margin-bottom: 40px; }
+        .specialties-list { list-style: none; padding: 0; margin: 0; }
+        .specialties-list li a { display: block; padding: 20px 15px; font-size: 1.5em; font-weight: 500; color: #555; text-decoration: none; border-radius: 10px; transition: all 0.3s ease; }
+        .specialties-list li a:hover, .specialties-list li a.active { background-color: #f0f8f7; color: #009688; font-weight: 700; }
+        
+        @media (max-width: 768px) {
+            body { height: auto; overflow: auto; }
+            .page-container { flex-direction: column; }
+            .list-pane { display: none; }
+            .preview-pane { flex-basis: 100%; background: transparent; padding: 20px; box-sizing: border-box; }
+            .specialty-preview {
+                position: relative; opacity: 1; visibility: visible;
+                min-height: 220px; border-radius: 15px; margin-bottom: 20px;
+                display: flex; box-shadow: 0 4px 20px rgba(0,0,0,0.08); overflow: hidden;
+            }
+            .specialty-preview-link { text-decoration: none; display: block; }
+            .specialty-preview h2 { font-size: 2.2em; }
+            .specialty-preview p { font-size: 1em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <div class="preview-pane">
+            <a href="doctor.html" class="specialty-preview-link"><div class="specialty-preview active" id="preview-cardiology"><h2>أمراض القلب</h2><p>تشخيص وعلاج أمراض القلب والأوعية الدموية.</p></div></a>
+            <a href="doctors-orthopedics.html" class="specialty-preview-link"><div class="specialty-preview" id="preview-orthopedics"><h2>جراحة العظام</h2><p>خبرات عالمية في علاج الكسور وتغيير المفاصل.</p></div></a>
+            <a href="doctors-dentistry.html" class="specialty-preview-link"><div class="specialty-preview" id="preview-dentistry"><h2>طب الأسنان</h2><p>لابتسامة صحية وجميلة لكامل أفراد العائلة.</p></div></a>
+            <a href="about.html" class="specialty-preview-link"><div class="specialty-preview" id="preview-about"><h2>من نحن </h2><p>تعرف علي كل من شارك في هذالعمل .</p></div></a>
+        </div>
+        <div class="list-pane">
+            <h1>تخصصاتنا</h1>
+            <p class="subtitle">مرر الفأرة فوق التخصص لاستكشافه، أو اضغط لعرض قائمة الأطباء.</p>
+            <ul class="specialties-list">
+                <li><a href="doctor.html" data-target="preview-cardiology" class="active">أمراض القلب</a></li>
+                <li><a href="doctor1.html" data-target="preview-orthopedics">جراحة العظام</a></li>
+                <li><a href="doctor2.html" data-target="preview-dentistry">طب الأسنان</a></li>
+                <li><a href="about.html" data-target="preview-about">من نحن </a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        if (window.innerWidth > 768) {
+            document.addEventListener('DOMContentLoaded', function() {
+                const links = document.querySelectorAll('.specialties-list a');
+                const previews = document.querySelectorAll('.specialty-preview');
+                document.querySelector('.specialties-list a').classList.add('active');
+                document.querySelector('.specialty-preview').classList.add('active');
+                links.forEach(link => {
+                    link.addEventListener('mouseenter', function() {
+                        links.forEach(l => l.classList.remove('active'));
+                        previews.forEach(p => p.classList.remove('active'));
+                        this.classList.add('active');
+                        const targetId = this.getAttribute('data-target');
+                        document.getElementById(targetId).classList.add('active');
+                    });
+                });
+            });
+        }
+    </script>
+</body>
+</html>
